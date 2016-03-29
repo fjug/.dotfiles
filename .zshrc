@@ -78,7 +78,7 @@ export LANG=en_US.UTF-8
 # Example aliases
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vim='/usr/local/bin/vim'
+#alias vim='/usr/local/bin/vim'
 
 # Convenient history searched reverse and forward
 bindkey "^R" history-incremental-pattern-search-backward
@@ -90,14 +90,16 @@ bindkey "^S" history-incremental-pattern-search-forward
 #export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
 
 # alias java6='export JAVA_HOME=$JAVA_6_HOME'
-alias java7='export JAVA_HOME=$JAVA_7_HOME'
-alias java8='export JAVA_HOME=$JAVA_8_HOME'
+#alias java7='export JAVA_HOME=$JAVA_7_HOME'
+#alias java8='export JAVA_HOME=$JAVA_8_HOME'
 
 # default java8
-export JAVA_HOME=$JAVA_8_HOME
+#export JAVA_HOME=$JAVA_8_HOME
 
 # Gurobi
 export PATH=/Library/gurobi650/mac64/bin:$PATH
 export GUROBI_HOME=/Library/gurobi650/mac64
 export LD_LIBRARY_PATH=/Library/gurobi650/mac64/lib:$LD_LIBRARY_PATH
 
+# MLT EXECUTABLES
+export PATH=/home/jug/Publications/Papers/2015_CVPR_MoralLineageTracing/code/build:$PATH

@@ -71,11 +71,11 @@ export VIGRA_NUMPY_CORE_LIBRARY='/Users/jug/local/vigra/vigranumpy/lib'
 # export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
 
 # alias java6='export JAVA_HOME=$JAVA_6_HOME'
-alias java7='export JAVA_HOME=$JAVA_7_HOME'
-alias java8='export JAVA_HOME=$JAVA_8_HOME'
+#alias java7='export JAVA_HOME=$JAVA_7_HOME'
+#alias java8='export JAVA_HOME=$JAVA_8_HOME'
 
 # default java8
-export JAVA_HOME=$JAVA_8_HOME
+#export JAVA_HOME=$JAVA_8_HOME
 
 # for Jan's sbmrm
 export Gurobi_ROOT_DIR="/Library/gurobi605/mac64"

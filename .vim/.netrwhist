@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/jug/.dotfiles/bash_completions'
+let g:netrw_dirhist_2='/Users/jug/.gradle'
+let g:netrw_dirhist_3='/Users/jug/Repositories/GIT/flybrain/README.md'
+let g:netrw_dirhist_4='/Users/jug/.ipython/profile_default'
+let g:netrw_dirhist_5='/Users/jug/Repositories/GIT/RegSeg'

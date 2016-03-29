@@ -67,8 +67,8 @@ export VIGRA_NUMPY_CORE_LIBRARY='/Users/jug/local/vigra/vigranumpy/lib'
 
 # JAVA HOME
 # export JAVA_6_HOME=$(/usr/libexec/java_home -v1.6)
-export JAVA_7_HOME=$(/usr/libexec/java_home -v1.7)
-export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
+# export JAVA_7_HOME=$(/usr/libexec/java_home -v1.7)
+# export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
 
 # alias java6='export JAVA_HOME=$JAVA_6_HOME'
 alias java7='export JAVA_HOME=$JAVA_7_HOME'
@@ -119,27 +119,6 @@ alias fiji=fiji7
 # MyRepos (mr)
 export PATH=~/local/myrepos/:$PATH
 
-# Tab and window renaming
-function tabname {
-	printf "\e]1;$1\a"
-}
-function winname {
-	printf "\e]2;$1\a"
-}
-function fixname {
-	unset PROMPT_COMMAND
-}
-function getgitbranch {
-	if [ "$(git rev-parse --abbrev-ref HEAD 2>/dev/null)" != "" ]; then 
-	 	echo "($(git rev-parse --abbrev-ref HEAD 2>/dev/null))";
-	fi;
-}
-function flexname {
-	local NEW_PROMPT_COMMAND='tabname "$(basename $(pwd)) $(getgitbranch)"'
-	PROMPT_COMMAND="update_terminal_cwd;$NEW_PROMPT_COMMAND"
-}
-flexname
-
 # Save and recall working directories + automation at each prompt
 # ---------------------------------------------------------------
 function swd {
@@ -174,11 +153,8 @@ function lwd_names {
 	cd $TMPCWD
 }
 
-export PROMPT_COMMAND="$PROMPT_COMMAND;swd"
-
 # The stuff that was in .profiles
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-VIRTUAL_ENV_DISABLE_PROMPT=1 source /Users/jug/Library/Enthought/Canopy_64bit/User/bin/activate
 
 # ILASTIK STUFF
 # export BUILDEM_DIR="/Users/jug/local/ilastik"
@@ -186,7 +162,4 @@ VIRTUAL_ENV_DISABLE_PROMPT=1 source /Users/jug/Library/Enthought/Canopy_64bit/Us
 # alias ilastikenv="source $BUILDEM_DIR/bin/setenv_ilastik_gui.sh"
 # source $BUILDEM_DIR/bin/setenv_ilastik_gui.sh
 # export PATH="/Users/jug/local/miniconda/bin:$PATH"
-
-# AT THE END: make PATH of any spotlight started app be the same as my bash PATH
-launchctl setenv PATH $PATH 
 

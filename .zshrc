@@ -85,9 +85,9 @@ bindkey "^R" history-incremental-pattern-search-backward
 bindkey "^S" history-incremental-pattern-search-forward
 
 # JAVA HOME
-# export JAVA_6_HOME=$(/usr/libexec/java_home -v1.6)
-export JAVA_7_HOME=$(/usr/libexec/java_home -v1.7)
-export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
+#export JAVA_6_HOME=$(/usr/libexec/java_home -v1.6)
+#export JAVA_7_HOME=$(/usr/libexec/java_home -v1.7)
+#export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
 
 # alias java6='export JAVA_HOME=$JAVA_6_HOME'
 alias java7='export JAVA_HOME=$JAVA_7_HOME'

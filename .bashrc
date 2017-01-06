@@ -111,11 +111,6 @@ alias prompt-git="export PS1='\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\
 alias prompt-nogit="export PS1='\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '"
 prompt-git
 
-# Fiji startup using Java8
-alias fiji7='/Applications/Fiji.app/Contents/MacOS/ImageJ-macosx --java-home /Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/'
-alias fiji8='/Applications/Fiji.app/Contents/MacOS/ImageJ-macosx --java-home /Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/'
-alias fiji=fiji7
-
 # MyRepos (mr)
 export PATH=~/local/myrepos/:$PATH
 
@@ -155,11 +150,3 @@ function lwd_names {
 
 # The stuff that was in .profiles
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-
-# ILASTIK STUFF
-# export BUILDEM_DIR="/Users/jug/local/ilastik"
-# export CLASSPATH=$BUILDEM_DIR/Frameworks/Python.framework/Versions/2.7/lib/jep:$CLASSPATH
-# alias ilastikenv="source $BUILDEM_DIR/bin/setenv_ilastik_gui.sh"
-# source $BUILDEM_DIR/bin/setenv_ilastik_gui.sh
-# export PATH="/Users/jug/local/miniconda/bin:$PATH"
-

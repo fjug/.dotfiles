@@ -10,4 +10,4 @@ ln -s .dotfiles/inputrc .inputrc
 ln -s .dotfiles/mrconfig .mrconfig
 ln -s .dotfiles/vimrc .vimrc
 ln -s .dotfiles/vim .vim
-
+ln -s .dotfiles/xmodmap .xmodmap

@@ -84,22 +84,11 @@ alias ohmyzsh="mate ~/.oh-my-zsh"
 bindkey "^R" history-incremental-pattern-search-backward
 bindkey "^S" history-incremental-pattern-search-forward
 
-# JAVA HOME
-#export JAVA_6_HOME=$(/usr/libexec/java_home -v1.6)
-#export JAVA_7_HOME=$(/usr/libexec/java_home -v1.7)
-#export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
-
-# alias java6='export JAVA_HOME=$JAVA_6_HOME'
-#alias java7='export JAVA_HOME=$JAVA_7_HOME'
-#alias java8='export JAVA_HOME=$JAVA_8_HOME'
-
-# default java8
-#export JAVA_HOME=$JAVA_8_HOME
-
 # Gurobi
-export PATH=/Library/gurobi650/mac64/bin:$PATH
-export GUROBI_HOME=/Library/gurobi650/mac64
-export LD_LIBRARY_PATH=/Library/gurobi650/mac64/lib:$LD_LIBRARY_PATH
+export GUROBI_HOME="~/local/gurobi701/linux64"
+export PATH="${PATH}:${GUROBI_HOME}/bin"
+# export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
+export LD_LIBRARY_PATH="${GUROBI_HOME}/lib"
 
 # MLT EXECUTABLES
 export PATH=/home/jug/Publications/Papers/2015_CVPR_MoralLineageTracing/code/build:$PATH

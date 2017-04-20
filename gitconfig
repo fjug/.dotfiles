@@ -63,7 +63,7 @@
 	spop = !git checkout 'stash^{tree}' -- . && git stash drop
 
 [core]
-	pager = less -FX
+	pager = less -r
 
 [diff]
 	color = auto
@@ -80,3 +80,5 @@
 
 [rebase]
 	autosquash = true
+[merge]
+	tool = meld

@@ -15,3 +15,39 @@ include = cat $CODE_BASE/scijava/dotfiles/mrconfig 2> /dev/null || true
 include = cat $CODE_BASE/slim/dotfiles/mrconfig 2> /dev/null || true
 include = cat $DOTFILES/mrconfig.d/* 2> /dev/null || true
 #include = cat $DOTFILES/mrconfig-extra.d/* 2> /dev/null || true
+
+[Repositories/GIT/imagej2/imagej]
+checkout = git clone 'git://github.com/imagej/imagej.git' 'imagej'
+
+[Repositories/GIT/imagej2/imagej-ops]
+checkout = git clone 'https://github.com/imagej/imagej-ops.git' 'imagej-ops'
+
+[Repositories/GIT/imagej2/imagej-tutorials]
+checkout = git clone 'https://github.com/imagej/imagej-tutorials' 'imagej-tutorials'
+
+[Repositories/GIT/imagej2/scijava-common]
+checkout = git clone 'https://github.com/scijava/scijava-common.git' 'scijava-common'
+
+[Repositories/GIT/indago/indago]
+checkout = git clone 'git@github.com:fjug/Indago.git' 'indago'
+
+[Repositories/GIT/indago/tr2d]
+checkout = git clone 'git@github.com:mpicbg-myerslab/tr2d.git' 'tr2d'
+
+[Repositories/GIT/indago/IndagoLoggingWrapper]
+checkout = git clone 'git@github.com:fjug/IndagoLoggingWrapper.git' 'IndagoLoggingWrapper'
+
+[Repositories/GIT/indago/Tr2dRunHernan]
+checkout = git clone 'git@github.com:fjug/Tr2dRunHernan.git' 'Tr2dRunHernan'
+
+[Repositories/GIT/indago/Tr2dSegmentationImportPlugin]
+checkout = git clone 'git@github.com:fjug/Tr2dSegmentationImportPlugin.git' 'Tr2dSegmentationImportPlugin'
+
+[Repositories/GIT/indago/Tr2dWekaSegmenterPlugin]
+checkout = git clone 'git@github.com:fjug/Tr2dWekaSegmenterPlugin.git' 'Tr2dWekaSegmenterPlugin'
+
+[Repositories/GIT/indago/indago-ui-elements]
+checkout = git clone 'git@github.com:mpicbg-myerslab/indago-ui-elements.git' 'indago-ui-elements'
+
+[Repositories/GIT/indago/pom-indago-master]
+checkout = git clone 'git@github.com:fjug/pom-indago.git' 'pom-indago-master'

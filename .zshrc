@@ -54,9 +54,10 @@ plugins=(z git brew history history-substring-search colored-man-pages colorize 
 
 # User configuration
 
-export PATH="/opt/local/bin:/opt/local/sbin:/Users/jug/Library/Enthought/Canopy_64bit/User/bin:/opt/local/bin:/opt/local/sbin:/Users/jug/local/myrepos/:/Developer/NVIDIA/CUDA-6.5/bin:/Library/gurobi650/mac64/bin:/Users/jug/local/MotherMachine:/Users/jug/bin:/usr/local/texlive/2013/bin/x86_64-darwin:/usr/local/bin:/Users/jug/Qt5.2.0/5.2.0/clang_64/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Library/TeX/texbin:/Users/jug/Repositories/GIT/MLT/MLT_PreProcessing/MLT_Processing/bin/Debug"
-#export PATH="/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/Users/jug/local/myrepos/:/Developer/NVIDIA/CUDA-6.5/bin:/Library/gurobi650/mac64/bin:/Users/jug/local/MotherMachine:/Users/jug/bin:/usr/local/texlive/2013/bin/x86_64-darwin:/usr/local/bin:/Users/jug/Qt5.2.0/5.2.0/clang_64/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Library/TeX/texbin:/Users/jug/Repositories/GIT/MLT/MLT_PreProcessing/MLT_Processing/bin/Debug"
-# export MANPATH="/usr/local/man:$MANPATH"
+export PATH="/Developer/NVIDIA/CUDA-6.5/bin:/Library/gurobi702/mac64/bin:/Users/jug/bin:/usr/local/texlive/2013/bin/x86_64-darwin:/usr/local/bin:/Users/jug/Qt5.2.0/5.2.0/clang_64/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Library/TeX/texbin"
+
+# Canopy python
+# export PATH=/Users/jug/Library/Enthought/Canopy_64bit/User/bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
 
@@ -80,6 +81,11 @@ alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim='/usr/local/bin/vim'
 
+# Fiji startup using Java8
+alias fiji7='/Applications/Fiji.app/Contents/MacOS/ImageJ-macosx --java-home /Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/'
+alias fiji8='/Applications/Fiji.app/Contents/MacOS/ImageJ-macosx --java-home /Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/'
+alias fiji=fiji8
+
 # Convenient history searched reverse and forward
 bindkey "^R" history-incremental-pattern-search-backward
 bindkey "^S" history-incremental-pattern-search-forward
@@ -97,7 +103,28 @@ alias java8='export JAVA_HOME=$JAVA_8_HOME'
 export JAVA_HOME=$JAVA_8_HOME
 
 # Gurobi
-export PATH=/Library/gurobi650/mac64/bin:$PATH
-export GUROBI_HOME=/Library/gurobi650/mac64
-export LD_LIBRARY_PATH=/Library/gurobi650/mac64/lib:$LD_LIBRARY_PATH
+export PATH=/Library/gurobi702/mac64/bin:$PATH
+export GUROBI_HOME=/Library/gurobi702/mac64
+export LD_LIBRARY_PATH=/Library/gurobi702/mac64/lib:$LD_LIBRARY_PATH
 
+# MoMA
+export MM_HOME=/Users/jug/local/MotherMachine
+
+# LaTeX-diff
+function git-latexdiff {    
+    if [[ $# != 2 ]];    
+    then      
+        printf "\tusage: git-latexdiff <file> <back-revision>  \n";    
+    elif [[ $2 -lt 0 ]];     
+    then     
+        printf "\t<Back-revision> must be positive\n";   
+    else      
+        dire=$(dirname $PWD/$1);      
+        based=$(git rev-parse --show-toplevel);      
+        git show HEAD~$2:$(echo $dire| sed 's!'$(echo $based)'/!!')/$1 > $1_diff.tmp;      
+        latexdiff $1 $1_diff.tmp > $1_diff.tex;      
+        pdflatex $1_diff.tex;     
+        okular $1_diff.pdf;      
+        rm $1_diff*;   
+    fi; 
+}

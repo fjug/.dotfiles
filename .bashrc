@@ -114,7 +114,7 @@ prompt-git
 # Fiji startup using Java8
 alias fiji7='/Applications/Fiji.app/Contents/MacOS/ImageJ-macosx --java-home /Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/'
 alias fiji8='/Applications/Fiji.app/Contents/MacOS/ImageJ-macosx --java-home /Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/'
-alias fiji=fiji7
+alias fiji=fiji8
 
 # MyRepos (mr)
 export PATH=~/local/myrepos/:$PATH

@@ -54,7 +54,7 @@ plugins=(z git brew history history-substring-search colored-man-pages colorize 
 
 # User configuration
 
-export PATH="/Developer/NVIDIA/CUDA-6.5/bin:/Library/gurobi800/mac64/bin:/Users/jug/bin:/usr/local/texlive/2013/bin/x86_64-darwin:/usr/local/bin:/Users/jug/Qt5.2.0/5.2.0/clang_64/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Library/TeX/texbin:/usr/local/bin:$PATH"
+export PATH="/Developer/NVIDIA/CUDA-6.5/bin:/Library/gurobi900/mac64/bin:/Users/jug/bin:/usr/local/texlive/2013/bin/x86_64-darwin:/usr/local/bin:/Users/jug/Qt5.2.0/5.2.0/clang_64/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Library/TeX/texbin:/usr/local/bin:$PATH"
 
 # GCC-8 as default C++ compiler
 export CC=gcc-HEAD
@@ -99,15 +99,8 @@ bindkey "^R" history-incremental-pattern-search-backward
 bindkey "^S" history-incremental-pattern-search-forward
 
 # JAVA HOME
-# export JAVA_6_HOME=$(/usr/libexec/java_home -v1.6)
-export JAVA_7_HOME=$(/usr/libexec/java_home -v1.7)
 export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
-
-# alias java6='export JAVA_HOME=$JAVA_6_HOME'
-alias java7='export JAVA_HOME=$JAVA_7_HOME'
 alias java8='export JAVA_HOME=$JAVA_8_HOME'
-
-# default java8
 export JAVA_HOME=$JAVA_8_HOME
 
 # Gurobi

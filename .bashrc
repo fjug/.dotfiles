@@ -49,16 +49,16 @@ export NC=$(tput sgr0)
 export nocolor=$NC
 
 # for Jan's sbmrm
-export Gurobi_ROOT_DIR="/Library/gurobi90/mac64"
+export Gurobi_ROOT_DIR="/Library/gurobi900/mac64"
 
 # MotherMachine batch stuff
 export MM_HOME='/Users/jug/local/MotherMachine'
 export PATH=$MM_HOME:$PATH
 
 # Gurobi
-export PATH=/Library/gurobi90/mac64/bin:$PATH
-export GUROBI_HOME=/Library/gurobi90/mac64
-export LD_LIBRARY_PATH=/Library/gurobi90/mac64/lib:$LD_LIBRARY_PATH
+export PATH=/Library/gurobi900/mac64/bin:$PATH
+export GUROBI_HOME=/Library/gurobi900/mac64
+export LD_LIBRARY_PATH=/Library/gurobi900/mac64/lib:$LD_LIBRARY_PATH
 
 # homebrew github token
 export HOMEBREW_GITHUB_API_TOKEN=3659bdb51539015fbfd812a794ec1e497a0f136a
@@ -78,27 +78,6 @@ alias fiji=fiji8
 
 # MyRepos (mr)
 export PATH=~/local/myrepos/:$PATH
-
-# Tab and window renaming
-function tabname {
-	printf "\e]1;$1\a"
-}
-function winname {
-	printf "\e]2;$1\a"
-}
-function fixname {
-	unset PROMPT_COMMAND
-}
-function getgitbranch {
-	if [ "$(git rev-parse --abbrev-ref HEAD 2>/dev/null)" != "" ]; then 
-	 	echo "($(git rev-parse --abbrev-ref HEAD 2>/dev/null))";
-	fi;
-}
-function flexname {
-	local NEW_PROMPT_COMMAND='tabname "$(basename $(pwd)) $(getgitbranch)"'
-	PROMPT_COMMAND="update_terminal_cwd;$NEW_PROMPT_COMMAND"
-}
-flexname
 
 # Save and recall working directories + automation at each prompt
 # ---------------------------------------------------------------
@@ -133,8 +112,6 @@ function lwd_names {
 	for file in .cwd*; do (printf "%s " "${file:4}") done
 	cd $TMPCWD
 }
-
-export PROMPT_COMMAND="$PROMPT_COMMAND;swd"
 
 # The stuff that was in .profiles
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH

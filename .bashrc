@@ -12,10 +12,7 @@ alias myip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2'
 alias today='date "+%Y-%m-%d %H:%M (%A)"'
 alias preview='open -a /Applications/Preview.app'
 
-alias myers7='ssh -Y jug@myers-pc-7.mpi-cbg.de'
-alias cdlabbook='cd ~/Dropbox/WorkingData/MPI/LabBook/'
 alias cdgit='cd ~/Repositories/GIT/'
-
 alias dropbox='/Users/jug/Repositories/GIT/Dropbox-Uploader/dropbox_uploader.sh'
 
 # Install my bash completion scripts
@@ -51,53 +48,17 @@ export dim=$(tput dim)
 export NC=$(tput sgr0)
 export nocolor=$NC
 
-# NEST setup (to be able to create modules)
-# export NEST_INSTALL_DIR=/usr/local
-# export DYLD_LIBRARY_PATH=$NEST_INSTALL_DIR/lib/nest
-# export PYTHONPATH=/Users/fjug/ETH/Arbeitsthemen/Neuroinformatics/NeuroGIT/InteractiveFFI/src
-# export MACOSX_DEPLOYMENT_TARGET=10.6
-
-# C/C++ compiler std setup
-export CXXFLAGS="-O3 -march=core2 -mtune=native -ffast-math" 
-export CFLAGS="-O3 -march=core2 -mtune=native -ffast-math"
-export LDFLAGS="-L/opt/local/lib"
-
-# VIGRA (for Kausler)
-export VIGRA_NUMPY_CORE_LIBRARY='/Users/jug/local/vigra/vigranumpy/lib'
-
-# JAVA HOME
-# export JAVA_6_HOME=$(/usr/libexec/java_home -v1.6)
-export JAVA_7_HOME=$(/usr/libexec/java_home -v1.7)
-export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
-
-# alias java6='export JAVA_HOME=$JAVA_6_HOME'
-alias java7='export JAVA_HOME=$JAVA_7_HOME'
-alias java8='export JAVA_HOME=$JAVA_8_HOME'
-
-# default java8
-export JAVA_HOME=$JAVA_8_HOME
-
 # for Jan's sbmrm
-export Gurobi_ROOT_DIR="/Library/gurobi605/mac64"
+export Gurobi_ROOT_DIR="/Library/gurobi90/mac64"
 
 # MotherMachine batch stuff
 export MM_HOME='/Users/jug/local/MotherMachine'
 export PATH=$MM_HOME:$PATH
-export KNIME_HOME=/Applications/KNIME\ 2.11.2
 
 # Gurobi
-export PATH=/Library/gurobi605/mac64/bin:$PATH
-export GUROBI_HOME=/Library/gurobi605/mac64
-export LD_LIBRARY_PATH=/Library/gurobi605/mac64/lib:$LD_LIBRARY_PATH
-
-# Corinna's Stuff
-export CB_HUNGARIAN_LIB=/Users/jug/Repositories/GIT/MLT/MLT_PreProcessing/HungarianMatching_Code/build/Debug
-export CB_HUNGARIAN_INC=/Users/jug/Repositories/GIT/MLT/MLT_PreProcessing/HungarianMatching_Code/inc
-export PATH=$PATH:/Users/jug/Repositories/GIT/MLT/MLT_PreProcessing/MLT_Processing/bin/Debug
-
-# CUDA
-export PATH=/Developer/NVIDIA/CUDA-6.5/bin:$PATH
-export DYLD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-6.5/lib:$DYLD_LIBRARY_PATH
+export PATH=/Library/gurobi90/mac64/bin:$PATH
+export GUROBI_HOME=/Library/gurobi90/mac64
+export LD_LIBRARY_PATH=/Library/gurobi90/mac64/lib:$LD_LIBRARY_PATH
 
 # homebrew github token
 export HOMEBREW_GITHUB_API_TOKEN=3659bdb51539015fbfd812a794ec1e497a0f136a
@@ -112,7 +73,6 @@ alias prompt-nogit="export PS1='\${debian_chroot:+(\$debian_chroot)}\[\033[01;32
 prompt-git
 
 # Fiji startup using Java8
-alias fiji7='/Applications/Fiji.app/Contents/MacOS/ImageJ-macosx --java-home /Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/'
 alias fiji8='/Applications/Fiji.app/Contents/MacOS/ImageJ-macosx --java-home /Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/'
 alias fiji=fiji8
 
@@ -179,13 +139,6 @@ export PROMPT_COMMAND="$PROMPT_COMMAND;swd"
 # The stuff that was in .profiles
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 VIRTUAL_ENV_DISABLE_PROMPT=1 source /Users/jug/Library/Enthought/Canopy_64bit/User/bin/activate
-
-# ILASTIK STUFF
-# export BUILDEM_DIR="/Users/jug/local/ilastik"
-# export CLASSPATH=$BUILDEM_DIR/Frameworks/Python.framework/Versions/2.7/lib/jep:$CLASSPATH
-# alias ilastikenv="source $BUILDEM_DIR/bin/setenv_ilastik_gui.sh"
-# source $BUILDEM_DIR/bin/setenv_ilastik_gui.sh
-# export PATH="/Users/jug/local/miniconda/bin:$PATH"
 
 # AT THE END: make PATH of any spotlight started app be the same as my bash PATH
 launchctl setenv PATH $PATH 

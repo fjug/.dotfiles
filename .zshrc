@@ -54,10 +54,11 @@ plugins=(z git brew history history-substring-search colored-man-pages colorize 
 
 # User configuration
 
-export PATH="/Developer/NVIDIA/CUDA-6.5/bin:/Library/gurobi702/mac64/bin:/Users/jug/bin:/usr/local/texlive/2013/bin/x86_64-darwin:/usr/local/bin:/Users/jug/Qt5.2.0/5.2.0/clang_64/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Library/TeX/texbin"
+export PATH="/Developer/NVIDIA/CUDA-6.5/bin:/Library/gurobi800/mac64/bin:/Users/jug/bin:/usr/local/texlive/2013/bin/x86_64-darwin:/usr/local/bin:/Users/jug/Qt5.2.0/5.2.0/clang_64/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Library/TeX/texbin:/usr/local/bin:$PATH"
 
-# Canopy python
-# export PATH=/Users/jug/Library/Enthought/Canopy_64bit/User/bin:$PATH
+# GCC-8 as default C++ compiler
+export CC=gcc-HEAD
+export CXX=g++-HEAD
 
 source $ZSH/oh-my-zsh.sh
 
@@ -80,6 +81,13 @@ export LANG=en_US.UTF-8
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim='/usr/local/bin/vim'
+alias mrbranches="mr run git branch | grep '^mr\|^*' | sed s/mr\ run:\ //"
+alias mvndoc='mvn javadoc:javadoc > javadocoutput.txt | grep ": error"'
+
+# The Fuck
+eval $(thefuck --alias)
+# Please
+alias please='sudo $(fc -ln -1) && echo "Okay..."'
 
 # Fiji startup using Java8
 alias fiji7='/Applications/Fiji.app/Contents/MacOS/ImageJ-macosx --java-home /Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/'
@@ -103,12 +111,18 @@ alias java8='export JAVA_HOME=$JAVA_8_HOME'
 export JAVA_HOME=$JAVA_8_HOME
 
 # Gurobi
-export PATH=/Library/gurobi702/mac64/bin:$PATH
-export GUROBI_HOME=/Library/gurobi702/mac64
-export LD_LIBRARY_PATH=/Library/gurobi702/mac64/lib:$LD_LIBRARY_PATH
+export PATH=/Library/gurobi900/mac64/bin:$PATH
+export GUROBI_HOME=/Library/gurobi900/mac64
+export LD_LIBRARY_PATH=/Library/gurobi900/mac64/lib:$LD_LIBRARY_PATH
+
+# Miniconda 3
+export PATH="/Users/jug/local/miniconda3/bin:$PATH"
 
 # MoMA
 export MM_HOME=/Users/jug/local/MotherMachine
+
+# SciJava scripts
+export PATH="/Users/jug/Repositories/GIT/scijava-scripts:$PATH"
 
 # LaTeX-diff
 function git-latexdiff {    
@@ -128,3 +142,6 @@ function git-latexdiff {
         rm $1_diff*;   
     fi; 
 }
+
+# added by travis gem
+[ -f /Users/jug/.travis/travis.sh ] && source /Users/jug/.travis/travis.sh

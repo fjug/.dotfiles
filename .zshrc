@@ -6,7 +6,7 @@ export ZSH=/Users/jug/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="bira"
+ZSH_THEME="bira_conda"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -48,29 +48,16 @@ ZSH_THEME="bira"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(z git brew history history-substring-search colored-man-pages colorize cp dirpersist vi-mode vundle gradle mercurial mvn pip python osx textmate themes)
+zstyle :omz:plugins:ssh-agent identities ht id_rsa
+zstyle :omz:plugins:ssh-agent agent-forwarding on
+plugins=(z ssh-agent git brew history history-substring-search colored-man-pages colorize cp dirpersist vi-mode vundle gradle mercurial mvn pip python osx textmate themes)
 
 # User configuration
 
-export PATH="/Developer/NVIDIA/CUDA-6.5/bin:/Library/gurobi900/mac64/bin:/Users/jug/bin:/usr/local/texlive/2013/bin/x86_64-darwin:/usr/local/bin:/Users/jug/Qt5.2.0/5.2.0/clang_64/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Library/TeX/texbin:/usr/local/bin:$PATH"
-
-# GCC-8 as default C++ compiler
-export CC=gcc-HEAD
-export CXX=g++-HEAD
+export PATH="/Users/jug/bin:/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/3.0.0/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
-
-# You may need to manually set your language environment
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -80,39 +67,36 @@ export LANG=en_US.UTF-8
 # Example aliases
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vim='/usr/local/bin/vim'
 alias mrbranches="mr run git branch | grep '^mr\|^*' | sed s/mr\ run:\ //"
 alias mvndoc='mvn javadoc:javadoc > javadocoutput.txt | grep ": error"'
+alias safari='open -a Safari'
+alias safari2='open -n -a /Applications/SafariInstance2.app'
+alias deNBI='ssh -p 30253 -i ~/.ssh/ht ubuntu@129.70.51.6'
+alias deNBI8888='ssh -p 30253 -i ~/.ssh/ht ubuntu@129.70.51.6 -L 8888:localhost:8888'
+alias scpdeNBI='scp -i ht -P 30253'
 
 # The Fuck
 eval $(thefuck --alias)
 # Please
 alias please='sudo $(fc -ln -1) && echo "Okay..."'
 
-# Fiji startup using Java8
-alias fiji7='/Applications/Fiji.app/Contents/MacOS/ImageJ-macosx --java-home /Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/'
-alias fiji8='/Applications/Fiji.app/Contents/MacOS/ImageJ-macosx --java-home /Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/'
-alias fiji=fiji8
-
 # Convenient history searched reverse and forward
 bindkey "^R" history-incremental-pattern-search-backward
 bindkey "^S" history-incremental-pattern-search-forward
 
-# JAVA HOME
-export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
-alias java8='export JAVA_HOME=$JAVA_8_HOME'
-export JAVA_HOME=$JAVA_8_HOME
-
-# Gurobi
-export PATH=/Library/gurobi900/mac64/bin:$PATH
-export GUROBI_HOME=/Library/gurobi900/mac64
-export LD_LIBRARY_PATH=/Library/gurobi900/mac64/lib:$LD_LIBRARY_PATH
-
-# Miniconda 3
-export PATH="/Users/jug/local/miniconda3/bin:$PATH"
-
-# MoMA
-export MM_HOME=/Users/jug/local/MotherMachine
+# CONDA
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/jug/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/jug/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/Users/jug/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/jug/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
 
 # SciJava scripts
 export PATH="/Users/jug/Repositories/GIT/scijava-scripts:$PATH"
@@ -136,5 +120,6 @@ function git-latexdiff {
     fi; 
 }
 
-# added by travis gem
-[ -f /Users/jug/.travis/travis.sh ] && source /Users/jug/.travis/travis.sh
+# Homebrew related
+export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"

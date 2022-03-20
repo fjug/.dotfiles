@@ -86,17 +86,19 @@ bindkey "^S" history-incremental-pattern-search-forward
 
 # CONDA
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('~/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "~/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "~/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/miniconda3/etc/profile.d/conda.sh"
     else
         export PATH="$HOME/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
+# turn off the PROMPT changes conda does per default (our zsh theme does it)
+conda config --set changeps1 false
 
 # LaTeX-diff
 function git-latexdiff {    

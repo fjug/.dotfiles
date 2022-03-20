@@ -1,0 +1,6 @@
+./.oh_my_zsh/
+./.vim/bundle/Vundle.vim
+./.vim/bundle/nerdcommenter
+./.vim/bundle/vim-airline
+./.vim/bundle/vim-sensible
+

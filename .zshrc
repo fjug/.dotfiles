@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/jug/.oh-my-zsh
+export ZSH=~/.dotfiles/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -51,7 +51,7 @@ ZSH_THEME="bira_conda"
 # Add wisely, as too many plugins slow down shell startup.
 zstyle :omz:plugins:ssh-agent identities ht id_rsa
 zstyle :omz:plugins:ssh-agent agent-forwarding on
-plugins=(z ssh-agent git brew history history-substring-search colored-man-pages colorize cp dirpersist vi-mode vundle gradle mercurial mvn pip python osx textmate themes)
+plugins=(z ssh-agent git brew history history-substring-search colored-man-pages colorize cp dirpersist vi-mode vundle gradle mercurial mvn pip python macos textmate themes)
 
 # User configuration
 
@@ -86,20 +86,17 @@ bindkey "^S" history-incremental-pattern-search-forward
 
 # CONDA
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/jug/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('~/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/jug/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/Users/jug/miniforge3/etc/profile.d/conda.sh"
+    if [ -f "~/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "~/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/jug/miniforge3/bin:$PATH"
+        export PATH="$HOME/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
-
-# SciJava scripts
-export PATH="/Users/jug/Repositories/GIT/scijava-scripts:$PATH"
 
 # LaTeX-diff
 function git-latexdiff {    
